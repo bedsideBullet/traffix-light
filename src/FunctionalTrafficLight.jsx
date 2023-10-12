@@ -1,18 +1,17 @@
 import { useState } from "react";
 
 export const FunctionalTrafficLight = () => {
+  const lights = ["red", "green", "yellow"];
 
-const lights = ["red", "green", "yellow"]
+  const [currentLight, setCurrentLight] = useState(lights[0]);
 
-const  [currentLight, setCurrentLight] = useState(lights[0])
+  const nextLight = () => {
+    setCurrentLight(currentLight + 1 <= 2 ? currentLight + 1 : 0);
+  };
 
-const nextLight = () => {
-   setCurrentLight((currentLight + 1) <= 2 ? (currentLight + 1) : 0 )
-} 
-
-const getCircleClass = (lightColor) => {
-  return currentLight === lights.indexOf(lightColor) ? lightColor : "black";
-};
+  const getCircleClass = (lightColor) => {
+    return currentLight === lights.indexOf(lightColor) ? lightColor : "black";
+  };
 
   return (
     <div className="traffic-light-box">
@@ -23,10 +22,9 @@ const getCircleClass = (lightColor) => {
         <div className={`circle ${getCircleClass("yellow")}`}></div>
         <div className={`circle ${getCircleClass("green")}`}></div>
       </div>
-      <button className="next-state-button" onClick={nextLight}>Next State</button>
+      <button className="next-state-button" onClick={nextLight}>
+        Next State
+      </button>
     </div>
   );
 };
-
-
-

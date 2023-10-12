@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 
 export class ClassTrafficLight extends Component {
-  state = { currentLight: 0 }
+  state = { currentLight: 0 };
 
-  lights = ["red", "green", "yellow"]
+  lights = ["red", "green", "yellow"];
 
   nextLight = () => {
-    this.setState({ currentLight: (this.state.currentLight + 1) <= 2 ? (this.state.currentLight + 1) : 0 });
-  }
+    this.setState({
+      currentLight:
+        this.state.currentLight + 1 <= 2 ? this.state.currentLight + 1 : 0,
+    });
+  };
 
   getCircleClass = (lightColor) => {
-    return this.state.currentLight === this.lights.indexOf(lightColor) ? lightColor : "black";
+    return this.state.currentLight === this.lights.indexOf(lightColor)
+      ? lightColor
+      : "black";
   };
 
   render() {
@@ -22,7 +27,9 @@ export class ClassTrafficLight extends Component {
           <div className={"circle " + this.getCircleClass("yellow")}></div>
           <div className={"circle " + this.getCircleClass("green")}></div>
         </div>
-        <button className="next-state-button" onClick={this.nextLight}>Next State</button>
+        <button className="next-state-button" onClick={this.nextLight}>
+          Next State
+        </button>
       </div>
     );
   }
