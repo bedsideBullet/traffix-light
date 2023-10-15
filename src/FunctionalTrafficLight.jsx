@@ -3,7 +3,7 @@ import { useState } from "react";
 export const FunctionalTrafficLight = () => {
   const lights = ["red", "green", "yellow"];
 
-  const [currentLight, setCurrentLight] = useState(lights[0]);
+  const [currentLight, setCurrentLight] = useState(0);
 
   const nextLight = () => {
     setCurrentLight(currentLight + 1 <= 2 ? currentLight + 1 : 0);
