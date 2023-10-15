@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 export class ClassTrafficLight extends Component {
   state = { currentLight: 0 };
-
   lights = ["red", "green", "yellow"];
 
   nextLight = () => {
